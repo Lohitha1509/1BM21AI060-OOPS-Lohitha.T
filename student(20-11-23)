@@ -1,0 +1,20 @@
+class Student:
+    pass
+
+class Marks:
+    pass
+
+student_instance = Student()
+marks_instance = Marks()
+
+is_student_instance = isinstance(student_instance, Student)
+is_marks_instance = isinstance(marks_instance, Marks)
+
+is_student_subclass = issubclass(Student, object)
+is_marks_subclass = issubclass(Marks, object)
+
+print(is_student_instance)
+print(is_marks_instance)
+
+print(is_student_subclass)
+print(is_marks_subclass)
