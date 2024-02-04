@@ -1,0 +1,37 @@
+class WrongAge(Exception):
+    pass
+class AgeInvalid(Exception):
+    pass
+
+class Father:
+    def __init__(self, age):
+        if age < 0:
+            raise WrongAge("Age cannot be negative")
+        self.father_age = age
+
+class Son(Father):
+    def __init__(self, father_age, son_age):
+        super().__init__(father_age)
+
+        if son_age >= father_age:
+            raise AgeInvalid("Son's age should be less than Father's age")
+
+        self.son_age = son_age
+
+try:
+    father_age_input = int(input("Enter Father's age: "))
+    son_age_input = int(input("Enter Son's age: "))
+
+    father = Father(father_age_input)
+    son = Son(father_age_input, son_age_input)
+
+except WrongAge as e:
+    print(f"Error: {e}")
+except AgeInvalid as e:
+    print(f"Error: {e}")
+except ValueError:
+    print("Invalid input. Please enter a valid age.")
+
+else:
+  print("Father's age:", father.father_age)
+  print("Son's age:", son.son_age)
